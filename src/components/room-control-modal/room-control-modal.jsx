@@ -4,6 +4,10 @@ import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Select from '@material-ui/core/Select';
+import Input from '@material-ui/core/Input';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const styles = theme => ({
   paper: {
@@ -57,7 +61,18 @@ class RoomControlModal extends Component {
               Text in a modal
             </Typography>
             <div>
-
+              <List>
+                <ListItem>
+                  <Select>
+                    <MenuItem value='single'>Single</MenuItem>
+                    <MenuItem value='twin'>Twin</MenuItem>
+                    <MenuItem value='tripple'>Tripple</MenuItem>
+                    <MenuItem value='quadro'>quadro</MenuItem>
+                  </Select>
+                  <Input />
+                  <Button>Del</Button>
+                </ListItem>
+              </List>
             </div>
           </div>
         </Modal>
