@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
+import { Typography } from '@material-ui/core';
+import grey from '@material-ui/core/colors/grey';
 import RoomControlForm from './room-control-form';
+import { CloseIcon } from '../icons/close-icon';
 
 const styles = theme => ({
   paper: {
@@ -15,25 +18,35 @@ const styles = theme => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
   },
+  modalHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'base-line',
+    backgroundColor: grey[200],
+    borderTopLeftRadius: '5px',
+    borderTopRightRadius: '5px',
+    padding: '16px 0 16px 16px',
+  },
+  closeButton: {
+    padding: 0,
+    boxShadow: 'none',
+    backgroundColor: grey[200],
+    '&:hover': {
+      backgroundColor: grey[200],
+    },
+  },
 });
 
 class RoomControlModal extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-
-    this.state = {
-      isOpen: false,
-    };
+  state = {
+    isOpen: false,
   }
 
-  handleOpen() {
+  handleOpen = () => {
     this.setState({ isOpen: true });
   }
 
-  handleClose() {
+  handleClose = () => {
     this.setState({ isOpen: false });
   }
 
@@ -52,8 +65,14 @@ class RoomControlModal extends Component {
           disableAutoFocus
         >
           <div className={classes.paper}>
-            <div>
-
+            <div className={classes.modalHeader}>
+              <Typography variant="headline">Room structure</Typography>
+              <Button
+                onClick={this.handleClose}
+                className={classes.closeButton}
+              >
+                <CloseIcon />
+              </Button>
             </div>
             <RoomControlForm
               onSubmit={console.log}
