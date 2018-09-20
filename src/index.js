@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { reducer as formReducer } from 'redux-form'
+import logger from 'redux-logger'
 import { App } from './app';
-import { roomControlReducer } from './components/room-control-modal/room-control-reducer';
 
-const store = createStore(roomControlReducer);
+const rootReducer = combineReducers({
+  form: formReducer
+});
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(logger)
+  );
 
 ReactDOM.render(
   <Provider store={store}>

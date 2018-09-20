@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import Select from '@material-ui/core/Select';
-import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
+import Modal from '@material-ui/core/Modal';
+import RoomControlForm from './room-control-form';
 
 const styles = theme => ({
   paper: {
@@ -57,23 +52,13 @@ class RoomControlModal extends Component {
           disableAutoFocus
         >
           <div className={classes.paper}>
-            <Typography variant="title" id="modal-title">
-              Text in a modal
-            </Typography>
             <div>
-              <List>
-                <ListItem>
-                  <Select>
-                    <MenuItem value='single'>Single</MenuItem>
-                    <MenuItem value='twin'>Twin</MenuItem>
-                    <MenuItem value='tripple'>Tripple</MenuItem>
-                    <MenuItem value='quadro'>quadro</MenuItem>
-                  </Select>
-                  <Input />
-                  <Button>Del</Button>
-                </ListItem>
-              </List>
+
             </div>
+            <RoomControlForm
+              onSubmit={console.log}
+              handleCancel={this.handleClose}
+            />
           </div>
         </Modal>
       </div>
@@ -81,6 +66,4 @@ class RoomControlModal extends Component {
   }
 }
 
-const RoomControlModalWrapped = withStyles(styles)(RoomControlModal);
-
-export default RoomControlModalWrapped;
+export default withStyles(styles)(RoomControlModal);

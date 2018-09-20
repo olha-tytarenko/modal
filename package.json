@@ -3,18 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --open --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {},
   "author": "Olha Tytarenko",
   "license": "ISC",
-  "babel": {
-    "plugins": [
-      "transform-es2015-destructuring",
-      "transform-object-rest-spread"
-    ]
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -22,6 +16,7 @@
     "@material-ui/core": "^3.1.0",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
     "webpack-dev-server": "^3.1.8"
   },
   "devDependencies": {
@@ -46,6 +41,7 @@
     "html-webpack-plugin": "^3.2.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "redux-form": "^7.4.2",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0"
   }
