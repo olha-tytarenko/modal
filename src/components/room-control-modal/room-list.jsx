@@ -41,7 +41,11 @@ const renderSelectField = ({
 
 const renderInputFieldWithStyles = withStyles(styles)(renderInputField);
 
-export const renderRoomList = ({ fields, classes: { listItem, closeIcon, deleteButton, resetPadding } }) => (
+export const renderRoomList = ({
+  fields, classes: {
+    listItem, closeIcon, deleteButton, addButton,
+  },
+}) => (
   <div>
     <List>
       {fields.map((room, index) => (
@@ -68,6 +72,6 @@ export const renderRoomList = ({ fields, classes: { listItem, closeIcon, deleteB
       ))
       }
     </List>
-    <Button onClick={() => fields.push({})} color="primary">Add</Button>
+    <Button onClick={() => fields.push({})} color="primary" className={addButton}>Add</Button>
   </div>
 );
