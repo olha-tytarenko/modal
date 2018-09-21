@@ -38,49 +38,33 @@ const styles = theme => ({
 });
 
 class RoomControlModal extends Component {
-  state = {
-    isOpen: false,
-  }
-
-  handleOpen = () => {
-    this.setState({ isOpen: true });
-  }
-
-  handleClose = () => {
-    this.setState({ isOpen: false });
-  }
-
   render() {
-    const { classes } = this.props;
-    const { isOpen } = this.state;
+    const { classes, isOpen, onClose, onSubmit } = this.props;
 
     return (
-      <div>
-        <Button onClick={this.handleOpen}>Open Modal</Button>
-        <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={isOpen}
-          onClose={this.handleClose}
-          disableAutoFocus
-        >
-          <div className={classes.paper}>
-            <div className={classes.modalHeader}>
-              <Typography variant="headline">Room structure</Typography>
-              <Button
-                onClick={this.handleClose}
-                className={classes.closeButton}
-              >
-                <CloseIcon />
-              </Button>
-            </div>
-            <RoomControlForm
-              onSubmit={console.log}
-              handleCancel={this.handleClose}
-            />
+      <Modal
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        open={isOpen}
+        onClose={onClose}
+        disableAutoFocus
+      >
+        <div className={classes.paper}>
+          <div className={classes.modalHeader}>
+            <Typography variant="headline">Room structure</Typography>
+            <Button
+              onClick={onClose}
+              className={classes.closeButton}
+            >
+              <CloseIcon />
+            </Button>
           </div>
-        </Modal>
-      </div>
+          <RoomControlForm
+            onSubmit={onSubmit}
+            handleCancel={onClose}
+          />
+        </div>
+      </Modal>
     );
   }
 }
